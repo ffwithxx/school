@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" misplaced="YES" id="iN0-l3-epB" customClass="JJSelectView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" misplaced="YES" id="cB7-Ou-fNv">
+                    <rect key="frame" x="0.0" y="90" width="80" height="50"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2aZ-5O-MzQ">
+                            <rect key="frame" x="0.0" y="0.0" width="80" height="48"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <color key="backgroundColor" red="0.33841478819999998" green="0.1496800184" blue="0.38821530339999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="课表查询">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="touchUpSelectBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="HRX-fP-Yug"/>
+                            </connections>
+                        </button>
+                        <view hidden="YES" contentMode="scaleToFill" misplaced="YES" id="I0k-6u-hsJ">
+                            <rect key="frame" x="15" y="48" width="50" height="2"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.33841478819999998" green="0.1496800184" blue="0.38821530339999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" misplaced="YES" id="tCQ-Cq-gGH">
+                    <rect key="frame" x="80" y="90" width="80" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                    <subviews>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="U25-rz-yIv">
+                            <rect key="frame" x="0.0" y="0.0" width="80" height="48"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <color key="backgroundColor" red="0.33841478819999998" green="0.1496800184" blue="0.38821530339999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="考勤管理">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="touchUpSelectBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="0mo-Zv-mlV"/>
+                            </connections>
+                        </button>
+                        <view hidden="YES" contentMode="scaleToFill" misplaced="YES" id="xQG-Vo-cPT">
+                            <rect key="frame" x="15" y="48" width="50" height="2"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.33841478819999998" green="0.1496800184" blue="0.38821530339999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" misplaced="YES" id="lGE-UQ-2eQ">
+                    <rect key="frame" x="160" y="90" width="80" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                    <subviews>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="N0H-N9-7u3">
+                            <rect key="frame" x="0.0" y="0.0" width="80" height="48"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <state key="normal" title="成绩查询">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="touchUpSelectBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="y2W-zj-yCq"/>
+                            </connections>
+                        </button>
+                        <view hidden="YES" contentMode="scaleToFill" misplaced="YES" id="9ET-Xs-ihB">
+                            <rect key="frame" x="15" y="48" width="50" height="2"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.33841478819999998" green="0.1496800184" blue="0.38821530339999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" misplaced="YES" id="uyN-bB-Pn7">
+                    <rect key="frame" x="240" y="90" width="80" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
+                    <subviews>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jy7-AP-ZPy">
+                            <rect key="frame" x="0.0" y="0.0" width="80" height="48"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <color key="backgroundColor" red="0.33841478819999998" green="0.1496800184" blue="0.38821530339999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="在校管理">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="touchUpSelectBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="rqV-h2-gAM"/>
+                            </connections>
+                        </button>
+                        <view hidden="YES" contentMode="scaleToFill" misplaced="YES" id="gzU-Qh-B77">
+                            <rect key="frame" x="15" y="48" width="50" height="2"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.33841478819999998" green="0.1496800184" blue="0.38821530339999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="EfO-aY-ylc">
+                    <rect key="frame" x="1" y="0.0" width="51" height="49"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="Wkf-B4-EuA">
+                    <rect key="frame" x="261" y="6" width="51" height="49"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pOT-yE-3pi">
+                    <rect key="frame" x="3" y="15" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oAx-Df-r7Q">
+                    <rect key="frame" x="257" y="15" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WEO-Xk-udY">
+                    <rect key="frame" x="69" y="14" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.33841478819999998" green="0.1496800184" blue="0.38821530339999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="ABTn" destination="2aZ-5O-MzQ" id="exc-Vd-IXo"/>
+                <outlet property="BBtn" destination="U25-rz-yIv" id="cBb-Q2-eG9"/>
+                <outlet property="CBtn" destination="N0H-N9-7u3" id="SJ5-SH-END"/>
+                <outlet property="DBtn" destination="jy7-AP-ZPy" id="C7J-OU-u8T"/>
+                <outlet property="aLine" destination="I0k-6u-hsJ" id="aK2-pa-esk"/>
+                <outlet property="bLine" destination="xQG-Vo-cPT" id="pPf-S6-Ikr"/>
+                <outlet property="cLine" destination="9ET-Xs-ihB" id="Sau-hb-fss"/>
+                <outlet property="dLine" destination="gzU-Qh-B77" id="wHJ-0s-1FC"/>
+                <outlet property="leftButton" destination="pOT-yE-3pi" id="kj4-3e-bMI"/>
+                <outlet property="leftImg" destination="EfO-aY-ylc" id="d0p-Iv-EZj"/>
+                <outlet property="rightButton" destination="oAx-Df-r7Q" id="9jg-4i-wYi"/>
+                <outlet property="rightImg" destination="Wkf-B4-EuA" id="qD8-eS-CyH"/>
+                <outlet property="titleLab" destination="WEO-Xk-udY" id="LHO-gd-STq"/>
+            </connections>
+            <point key="canvasLocation" x="1" y="76"/>
+        </view>
+    </objects>
+</document>

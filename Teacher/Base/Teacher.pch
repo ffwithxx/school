@@ -1,0 +1,25 @@
+//
+//  Teacher.pch
+//  Teacher
+//
+//  Created by 冯丽 on 2017/12/18.
+//  Copyright © 2017年 chenghong. All rights reserved.
+//
+
+#ifndef Teacher_pch
+#define Teacher_pch
+#define kTabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49)
+#define kScreenSize           [[UIScreen mainScreen] bounds].size
+#define kNavHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?88:64)
+
+
+#define kTabbar_SafeArea ([[UIApplication sharedApplication] statusBarFrame].size.height>20?34:0)
+/** 是否是 iPhone X */
+#define kiPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#define KTabBarColor ([UIColor colorWithRed:68/255.0 green:24/255.0 blue:80/255.0 alpha:1.0])
+#define KBgColor ([UIColor colorWithRed:242/255.0 green:240/255.0 blue:250/255.0 alpha:1.0])
+#define KLineColor ([UIColor colorWithRed:205/255.0 green:212/255.0 blue:222/255.0 alpha:1.0])
+#define KTextBlackColor ([UIColor colorWithRed:85/255.0 green:95/255.0 blue:110/255.0 alpha:1.0])
+#define KTextgrayColor ([UIColor colorWithRed:180/255.0 green:189/255.0 blue:202/255.0 alpha:1.0])
+#define KYellowColor ([UIColor colorWithRed:190/255.0 green:155/255.0 blue:97/255.0 alpha:1.0])
+#endif /* Teacher_pch */
