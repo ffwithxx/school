@@ -35,6 +35,21 @@
 		120602CE1FEA02620041BBB2 /* login_pic_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 120602C01FEA02620041BBB2 /* login_pic_logo@2x.png */; };
 		120602CF1FEA02620041BBB2 /* cont_icon_enter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 120602C11FEA02620041BBB2 /* cont_icon_enter@2x.png */; };
 		120602D01FEA02620041BBB2 /* cont_icon_disc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 120602C21FEA02620041BBB2 /* cont_icon_disc@2x.png */; };
+		12481027204F8267006A22BE /* StudentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12481026204F8267006A22BE /* StudentsCell.m */; };
+		1248102A204F828B006A22BE /* StudentsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 12481029204F828B006A22BE /* StudentsVC.m */; };
+		1248102D204FBA9F006A22BE /* TypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1248102C204FBA9F006A22BE /* TypeVC.m */; };
+		12481030204FBABA006A22BE /* TypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1248102F204FBABA006A22BE /* TypeCell.m */; };
+		12481039204FCA24006A22BE /* SZCalendarPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12481032204FCA23006A22BE /* SZCalendarPicker.xib */; };
+		1248103A204FCA24006A22BE /* UIColor+ZXLazy.m in Sources */ = {isa = PBXBuildFile; fileRef = 12481033204FCA23006A22BE /* UIColor+ZXLazy.m */; };
+		1248103B204FCA24006A22BE /* SZCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12481036204FCA23006A22BE /* SZCalendarCell.m */; };
+		1248103C204FCA24006A22BE /* SZCalendarPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 12481037204FCA24006A22BE /* SZCalendarPicker.m */; };
+		1248104F204FCBB8006A22BE /* ELCImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12481041204FCBB6006A22BE /* ELCImagePickerController.m */; };
+		12481050204FCBB8006A22BE /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12481042204FCBB6006A22BE /* ELCAlbumPickerController.m */; };
+		12481051204FCBB8006A22BE /* ELCAssetTablePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 12481044204FCBB6006A22BE /* ELCAssetTablePicker.m */; };
+		12481052204FCBB8006A22BE /* ELCAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12481046204FCBB7006A22BE /* ELCAssetCell.m */; };
+		12481053204FCBB8006A22BE /* ELCOverlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1248104A204FCBB7006A22BE /* ELCOverlayImageView.m */; };
+		12481054204FCBB8006A22BE /* ELCConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 1248104C204FCBB8006A22BE /* ELCConsole.m */; };
+		12481055204FCBB8006A22BE /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 1248104D204FCBB8006A22BE /* ELCAsset.m */; };
 		127ADF711FFDC76B0081D102 /* MemberShipVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 127ADF701FFDC76B0081D102 /* MemberShipVC.m */; };
 		127ADF75200379280081D102 /* TwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 127ADF74200379280081D102 /* TwoCell.m */; };
 		127ADF7A20045AA80081D102 /* MessageCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 127ADF7920045AA80081D102 /* MessageCenterCell.m */; };
@@ -144,6 +159,38 @@
 		120602C01FEA02620041BBB2 /* login_pic_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_pic_logo@2x.png"; sourceTree = "<group>"; };
 		120602C11FEA02620041BBB2 /* cont_icon_enter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cont_icon_enter@2x.png"; sourceTree = "<group>"; };
 		120602C21FEA02620041BBB2 /* cont_icon_disc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cont_icon_disc@2x.png"; sourceTree = "<group>"; };
+		12481025204F8267006A22BE /* StudentsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudentsCell.h; sourceTree = "<group>"; };
+		12481026204F8267006A22BE /* StudentsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudentsCell.m; sourceTree = "<group>"; };
+		12481028204F828B006A22BE /* StudentsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudentsVC.h; sourceTree = "<group>"; };
+		12481029204F828B006A22BE /* StudentsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudentsVC.m; sourceTree = "<group>"; };
+		1248102B204FBA9F006A22BE /* TypeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeVC.h; sourceTree = "<group>"; };
+		1248102C204FBA9F006A22BE /* TypeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TypeVC.m; sourceTree = "<group>"; };
+		1248102E204FBABA006A22BE /* TypeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeCell.h; sourceTree = "<group>"; };
+		1248102F204FBABA006A22BE /* TypeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TypeCell.m; sourceTree = "<group>"; };
+		12481032204FCA23006A22BE /* SZCalendarPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SZCalendarPicker.xib; sourceTree = "<group>"; };
+		12481033204FCA23006A22BE /* UIColor+ZXLazy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ZXLazy.m"; sourceTree = "<group>"; };
+		12481034204FCA23006A22BE /* UIColor+ZXLazy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ZXLazy.h"; sourceTree = "<group>"; };
+		12481035204FCA23006A22BE /* SZCalendarPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCalendarPicker.h; sourceTree = "<group>"; };
+		12481036204FCA23006A22BE /* SZCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZCalendarCell.m; sourceTree = "<group>"; };
+		12481037204FCA24006A22BE /* SZCalendarPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZCalendarPicker.m; sourceTree = "<group>"; };
+		12481038204FCA24006A22BE /* SZCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCalendarCell.h; sourceTree = "<group>"; };
+		1248103E204FCBB6006A22BE /* ELCAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAlbumPickerController.h; sourceTree = "<group>"; };
+		1248103F204FCBB6006A22BE /* ELCAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetCell.h; sourceTree = "<group>"; };
+		12481040204FCBB6006A22BE /* ELCImagePickerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerHeader.h; sourceTree = "<group>"; };
+		12481041204FCBB6006A22BE /* ELCImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCImagePickerController.m; sourceTree = "<group>"; };
+		12481042204FCBB6006A22BE /* ELCAlbumPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAlbumPickerController.m; sourceTree = "<group>"; };
+		12481043204FCBB6006A22BE /* ELCAssetTablePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetTablePicker.h; sourceTree = "<group>"; };
+		12481044204FCBB6006A22BE /* ELCAssetTablePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetTablePicker.m; sourceTree = "<group>"; };
+		12481045204FCBB6006A22BE /* ELCAssetSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetSelectionDelegate.h; sourceTree = "<group>"; };
+		12481046204FCBB7006A22BE /* ELCAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAssetCell.m; sourceTree = "<group>"; };
+		12481047204FCBB7006A22BE /* ELCConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCConsole.h; sourceTree = "<group>"; };
+		12481048204FCBB7006A22BE /* ELCImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCImagePickerController.h; sourceTree = "<group>"; };
+		12481049204FCBB7006A22BE /* ELCOverlayImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCOverlayImageView.h; sourceTree = "<group>"; };
+		1248104A204FCBB7006A22BE /* ELCOverlayImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCOverlayImageView.m; sourceTree = "<group>"; };
+		1248104B204FCBB8006A22BE /* ELCAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAsset.h; sourceTree = "<group>"; };
+		1248104C204FCBB8006A22BE /* ELCConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCConsole.m; sourceTree = "<group>"; };
+		1248104D204FCBB8006A22BE /* ELCAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAsset.m; sourceTree = "<group>"; };
+		1248104E204FCBB8006A22BE /* ELCAssetPickerFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetPickerFilterDelegate.h; sourceTree = "<group>"; };
 		127ADF6F1FFDC76B0081D102 /* MemberShipVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberShipVC.h; sourceTree = "<group>"; };
 		127ADF701FFDC76B0081D102 /* MemberShipVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberShipVC.m; sourceTree = "<group>"; };
 		127ADF73200379280081D102 /* TwoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoCell.h; sourceTree = "<group>"; };
@@ -367,6 +414,8 @@
 		120602AC1FE7A5DB0041BBB2 /* third */ = {
 			isa = PBXGroup;
 			children = (
+				1248103D204FCBA9006A22BE /* 图片 */,
+				12481031204FCA17006A22BE /* SZCalendarPicker */,
 				128D695A2022C5E300546354 /* kantuViewController.h */,
 				128D695B2022C5E300546354 /* kantuViewController.m */,
 				1283A8B81FF636F8001FDBDE /* LY */,
@@ -409,6 +458,44 @@
 				120602BF1FEA02620041BBB2 /* navi_icon_news@2x.png */,
 			);
 			path = icon;
+			sourceTree = "<group>";
+		};
+		12481031204FCA17006A22BE /* SZCalendarPicker */ = {
+			isa = PBXGroup;
+			children = (
+				12481034204FCA23006A22BE /* UIColor+ZXLazy.h */,
+				12481033204FCA23006A22BE /* UIColor+ZXLazy.m */,
+				12481035204FCA23006A22BE /* SZCalendarPicker.h */,
+				12481037204FCA24006A22BE /* SZCalendarPicker.m */,
+				12481032204FCA23006A22BE /* SZCalendarPicker.xib */,
+				12481038204FCA24006A22BE /* SZCalendarCell.h */,
+				12481036204FCA23006A22BE /* SZCalendarCell.m */,
+			);
+			path = SZCalendarPicker;
+			sourceTree = "<group>";
+		};
+		1248103D204FCBA9006A22BE /* 图片 */ = {
+			isa = PBXGroup;
+			children = (
+				1248103E204FCBB6006A22BE /* ELCAlbumPickerController.h */,
+				12481042204FCBB6006A22BE /* ELCAlbumPickerController.m */,
+				1248104B204FCBB8006A22BE /* ELCAsset.h */,
+				1248104D204FCBB8006A22BE /* ELCAsset.m */,
+				1248103F204FCBB6006A22BE /* ELCAssetCell.h */,
+				12481046204FCBB7006A22BE /* ELCAssetCell.m */,
+				1248104E204FCBB8006A22BE /* ELCAssetPickerFilterDelegate.h */,
+				12481045204FCBB6006A22BE /* ELCAssetSelectionDelegate.h */,
+				12481043204FCBB6006A22BE /* ELCAssetTablePicker.h */,
+				12481044204FCBB6006A22BE /* ELCAssetTablePicker.m */,
+				12481047204FCBB7006A22BE /* ELCConsole.h */,
+				1248104C204FCBB8006A22BE /* ELCConsole.m */,
+				12481048204FCBB7006A22BE /* ELCImagePickerController.h */,
+				12481041204FCBB6006A22BE /* ELCImagePickerController.m */,
+				12481040204FCBB6006A22BE /* ELCImagePickerHeader.h */,
+				12481049204FCBB7006A22BE /* ELCOverlayImageView.h */,
+				1248104A204FCBB7006A22BE /* ELCOverlayImageView.m */,
+			);
+			path = "图片";
 			sourceTree = "<group>";
 		};
 		127ADF722003790D0081D102 /* TWO */ = {
@@ -475,6 +562,14 @@
 				1204201520075D7200D8E558 /* ManagementVC.m */,
 				1204201720075D9300D8E558 /* ManagementCell.h */,
 				1204201820075D9300D8E558 /* ManagementCell.m */,
+				12481028204F828B006A22BE /* StudentsVC.h */,
+				12481029204F828B006A22BE /* StudentsVC.m */,
+				12481025204F8267006A22BE /* StudentsCell.h */,
+				12481026204F8267006A22BE /* StudentsCell.m */,
+				1248102B204FBA9F006A22BE /* TypeVC.h */,
+				1248102C204FBA9F006A22BE /* TypeVC.m */,
+				1248102E204FBABA006A22BE /* TypeCell.h */,
+				1248102F204FBABA006A22BE /* TypeCell.m */,
 			);
 			path = four;
 			sourceTree = "<group>";
@@ -710,6 +805,7 @@
 				120602C71FEA02620041BBB2 /* login_icon_key@2x_85.png in Resources */,
 				120602791FE794DD0041BBB2 /* LaunchScreen.storyboard in Resources */,
 				127ADF832005BC4C0081D102 /* sign.xib in Resources */,
+				12481039204FCA24006A22BE /* SZCalendarPicker.xib in Resources */,
 				1283A86A1FF4DFF8001FDBDE /* JJSelectView.xib in Resources */,
 				120602761FE794DD0041BBB2 /* Assets.xcassets in Resources */,
 				120602C91FEA02620041BBB2 /* cont_icon_pic@2x.png in Resources */,
@@ -795,37 +891,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12481050204FCBB8006A22BE /* ELCAlbumPickerController.m in Sources */,
 				1283A89F1FF4FE86001FDBDE /* OneCell.m in Sources */,
 				1283A8B71FF63685001FDBDE /* pinyin.c in Sources */,
 				1283A8A71FF6218B001FDBDE /* SettingPswController.m in Sources */,
 				1283A8691FF4DFF8001FDBDE /* JJSelectView.m in Sources */,
 				1283A8BE1FF63710001FDBDE /* LYImageToast.m in Sources */,
 				128D69262020495800546354 /* TeacherScheduleModel.m in Sources */,
+				1248103B204FCA24006A22BE /* SZCalendarCell.m in Sources */,
+				1248103A204FCA24006A22BE /* UIColor+ZXLazy.m in Sources */,
 				128D692F2020717600546354 /* ChoiceCell.m in Sources */,
 				1206027C1FE794DD0041BBB2 /* main.m in Sources */,
 				1283A88D1FF4E88C001FDBDE /* JJBaseController.m in Sources */,
 				120602B31FE7A6120041BBB2 /* LeftSlideViewController.m in Sources */,
+				12481055204FCBB8006A22BE /* ELCAsset.m in Sources */,
 				128D69292020573800546354 /* CourseAttendanceModel.m in Sources */,
 				127ADF711FFDC76B0081D102 /* MemberShipVC.m in Sources */,
 				120602AA1FE7A4B60041BBB2 /* LeftViewController.m in Sources */,
+				12481027204F8267006A22BE /* StudentsCell.m in Sources */,
 				127ADF862005C0AE0081D102 /* sign.m in Sources */,
+				12481051204FCBB8006A22BE /* ELCAssetTablePicker.m in Sources */,
+				12481030204FBABA006A22BE /* TypeCell.m in Sources */,
 				1283A8B41FF63685001FDBDE /* KIKeyChain.m in Sources */,
 				1283A8B31FF63685001FDBDE /* GiFHUD.m in Sources */,
 				127ADF9920070EDB0081D102 /* FourCell.m in Sources */,
+				12481052204FCBB8006A22BE /* ELCAssetCell.m in Sources */,
 				120602A31FE7A0590041BBB2 /* BaseViewController.m in Sources */,
 				1283A8BF1FF63710001FDBDE /* LYMessageToast.m in Sources */,
 				120602B21FE7A6120041BBB2 /* UIView_extra.m in Sources */,
+				1248102D204FBA9F006A22BE /* TypeVC.m in Sources */,
 				127ADF892005E8BF0081D102 /* CourseAttendanceVC.m in Sources */,
 				127ADF9C200716A90081D102 /* addVC.m in Sources */,
 				1283A8961FF4E93B001FDBDE /* TwoViewController.m in Sources */,
+				1248103C204FCA24006A22BE /* SZCalendarPicker.m in Sources */,
 				127ADF7A20045AA80081D102 /* MessageCenterCell.m in Sources */,
 				1283A8521FEC9E0B001FDBDE /* LoginViewController.m in Sources */,
+				1248102A204F828B006A22BE /* StudentsVC.m in Sources */,
 				127ADF922006084E0081D102 /* TestScoresCell.m in Sources */,
 				128D695C2022C5E400546354 /* kantuViewController.m in Sources */,
 				1283A8991FF4E948001FDBDE /* ThreeViewController.m in Sources */,
 				127ADF8C2005E8DA0081D102 /* CourseAttendanceCell.m in Sources */,
 				127ADF802005AE7B0081D102 /* MessageDetailVC.m in Sources */,
+				12481053204FCBB8006A22BE /* ELCOverlayImageView.m in Sources */,
 				1283A89C1FF4E954001FDBDE /* FourViewController.m in Sources */,
+				1248104F204FCBB8006A22BE /* ELCImagePickerController.m in Sources */,
 				128D692C2020716000546354 /* ChoiceVC.m in Sources */,
 				128D691E201F05C100546354 /* AFClient.m in Sources */,
 				1283A8901FF4E911001FDBDE /* MainPageViewController.m in Sources */,
@@ -836,6 +945,7 @@
 				1204201620075D7200D8E558 /* ManagementVC.m in Sources */,
 				120602A61FE7A0FC0041BBB2 /* MainViewController.m in Sources */,
 				1283A8931FF4E92E001FDBDE /* OneViewController.m in Sources */,
+				12481054204FCBB8006A22BE /* ELCConsole.m in Sources */,
 				127ADF75200379280081D102 /* TwoCell.m in Sources */,
 				1283A8B61FF63685001FDBDE /* BGControl.m in Sources */,
 				1204201920075D9300D8E558 /* ManagementCell.m in Sources */,

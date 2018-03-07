@@ -256,9 +256,9 @@
 
 }
 //6.app查询消息公告
-- (void)noticeWithId:(NSString  *)idStr  progressBlock:(ProgressBlock)progress success:(SuccessBlock)success failure:(FailureBlcok)failure {
+- (void)noticeWithId:(NSString  *)idStr witnPage:(NSString *)page withLimit:(NSString *)limit  progressBlock:(ProgressBlock)progress success:(SuccessBlock)success failure:(FailureBlcok)failure {
     _url = [NSString stringWithFormat:@"%@%@",kHttpHeader,@"notice/get"];
-    _dict = [NSDictionary dictionaryWithObjectsAndKeys:idStr,@"schoolPid", nil];
+    _dict = [NSDictionary dictionaryWithObjectsAndKeys:idStr,@"schoolPid",page,@"page",limit,@"limit", nil];
     AFHTTPSessionManager *manager = [self creatManager];
     [manager.requestSerializer setValue:token forHTTPHeaderField:@"Authorization"];
 
@@ -343,5 +343,112 @@
         }
     }];
 }
-
+//5.根据教师查询学生
+- (void)getStudents:(NSString *)teacherId progressBlock:(ProgressBlock)progress success:(SuccessBlock)success failure:(FailureBlcok)failure {
+    _url = [NSString stringWithFormat:@"%@%@",kHttpHeader,@"Teacerstudent/get"];
+    
+    AFHTTPSessionManager *manager = [self creatManager];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"Authorization"];
+    _dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:teacherId,@"teacherId", nil];
+    [manager GET:_url parameters:_dict progress:^(NSProgress * _Nonnull uploadProgress) {
+        if (progress) {
+            progress(uploadProgress);
+        }
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        
+        if (success) {
+            //             获取所有数据报头信息
+            NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)task.response;
+            NSDictionary *fields = [HTTPResponse allHeaderFields];// 原生NSURLConnection写法
+            NSLog(@"fields = %@", [fields description]);
+            NSError *error;
+            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
+            NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+            success(dict);
+            
+            
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+- (void)postFile:(NSString *)file  progressBlock:(ProgressBlock)progress success:(SuccessBlock)success failure:(FailureBlcok)failure {
+    _url =[NSString stringWithFormat:@"%@%@",kHttpHeader,@"uploads"];
+    
+    UIImage *img = [UIImage imageWithContentsOfFile:file];
+    AFHTTPSessionManager *manager = [self creatManager];
+    manager.requestSerializer=[AFHTTPRequestSerializer serializer];
+    
+    manager.responseSerializer=[AFHTTPResponseSerializer serializer];
+    manager.requestSerializer.timeoutInterval = 20.f;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyyMMddHHmmss";
+    NSString *str = [formatter stringFromDate:[NSDate date]];
+    NSString *fileName = [NSString stringWithFormat:@"%@.jpg", str];
+     [manager.requestSerializer setValue:token forHTTPHeaderField:@"Authorization"];
+    [manager POST:_url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        [formData appendPartWithFileData:[self resetSizeOfImageData:img maxSize:50] name:@"file" fileName:fileName mimeType:@"image/jpg"];
+        NSLog(@"123");
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        if (progress) {
+            progress(uploadProgress);
+        }
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        if (success) {
+            NSLog(@"%@",_url);
+            NSLog(@"%@",dict[@"data"]);
+            success(dict);
+            //             获取所有数据报头信息
+            NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)task.response;
+            NSDictionary *fields = [HTTPResponse allHeaderFields];// 原生NSURLConnection写法
+            NSLog(@"fields = %@", [fields description]);
+            // 获取cookie方法1
+            NSString *cookieString = [[HTTPResponse allHeaderFields] valueForKey:@"Set-Cookie"];
+            if (![BGControl isNULLOfString:cookieString]) {
+                [[NSUserDefaults standardUserDefaults] setObject:cookieString forKey:@"cook"];
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failure) {
+            failure(error);
+        }
+    }];;
+}
+//3.1 修改考勤(状态)接口
+- (void)updateAttendance:(NSString *)studentId withStatus:(NSString *)status progressBlock:(ProgressBlock)progress success:(SuccessBlock)success failure:(FailureBlcok)failure {
+    _url = [NSString stringWithFormat:@"%@%@",kHttpHeader,@"attendance/update"];
+    
+    AFHTTPSessionManager *manager = [self creatManager];
+    [manager.requestSerializer setValue:token forHTTPHeaderField:@"Authorization"];
+    _dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:studentId,@"studentId",status,@"status", nil];
+    [manager POST:_url parameters:_dict progress:^(NSProgress * _Nonnull uploadProgress) {
+        if (progress) {
+            progress(uploadProgress);
+        }
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        
+        if (success) {
+            //             获取所有数据报头信息
+            NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)task.response;
+            NSDictionary *fields = [HTTPResponse allHeaderFields];// 原生NSURLConnection写法
+            NSLog(@"fields = %@", [fields description]);
+            NSError *error;
+            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
+            NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+            success(dict);
+            
+            
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
 @end

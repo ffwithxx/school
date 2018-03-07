@@ -11,9 +11,11 @@
 #import "MessageDetailVC.h"
 #import "BGControl.h"
 #define  kCellName @"MessageCenterCell"
-
+#import <MJRefresh/MJRefresh.h>
+#import "MJRefreshComponent.h"
 @interface MessageCenterVC ()<UITableViewDataSource,UITableViewDelegate,maxHeiDelegate> {
     MessageCenterCell *_cell;
+    NSInteger pageIndex;
     
 }
 
@@ -39,11 +41,25 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.hidden = NO;
 }
-
--(void)first {
+- (void)first {
+    
+    MJRefreshNormalHeader *refreshHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        pageIndex = 1;
+        [self getDate];
+    }];
+    
+    self.bigTableView.mj_header = refreshHeader;
+    MJRefreshBackNormalFooter *refreshFooter = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        pageIndex ++;
+        [self getDate];
+    }];
+    self.bigTableView.mj_footer = refreshFooter;
+    [self.bigTableView.mj_header beginRefreshing];
+}
+-(void)getDate {
     NSString *schoolPid = [[NSUserDefaults standardUserDefaults] valueForKey:@"schoolPid"];
     [self show];
-    [[AFClient shareInstance] noticeWithId:schoolPid progressBlock:^(NSProgress *progress) {
+    [[AFClient shareInstance] noticeWithId:schoolPid witnPage:[NSString stringWithFormat:@"%ld",pageIndex] withLimit:@"20" progressBlock:^(NSProgress *progress) {
         
     } success:^(id responseBody) {
         if ([[responseBody valueForKey:@"code"] integerValue] == 0) {
@@ -53,8 +69,12 @@
             [self Alert:responseBody[@"msg"]];
         }
         [self.bigTableView reloadData];
+        [self.bigTableView.mj_header endRefreshing];
+        [self.bigTableView.mj_footer endRefreshing];
         [self dismiss];
     } failure:^(NSError *error) {
+        [self.bigTableView.mj_header endRefreshing];
+        [self.bigTableView.mj_footer endRefreshing];
           [self dismiss];
     }];
 }

@@ -40,6 +40,7 @@
     [self.bigTableView setTableHeaderView:self.topView];
     self.titleNameLab.text = self.titleStr;
     self.banjiOneLab.text = self.niajiStr;
+     self.bigTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

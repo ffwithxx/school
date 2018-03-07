@@ -15,7 +15,7 @@
     // Initialization code
 }
 - (void)showModelWithDict:(NSDictionary *)dict {
-    self.nameLab.text = @"lili";
+    self.nameLab.text = [dict valueForKey:@"studentName"];
     self.scoreLab.text = [NSString stringWithFormat:@"%@",[dict valueForKey:@"score"]];
     self.levelLab.text = [dict valueForKey:@"achievement"];
 }

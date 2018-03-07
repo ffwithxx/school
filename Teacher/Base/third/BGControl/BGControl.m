@@ -1446,4 +1446,10 @@ CGRect oldframe;
     return str;
     
 }
+
+/*高度*/
++(CGFloat)heightForRow:(NSString *)aString font:(UIFont *)font labelSize:(CGSize)labelSize {
+    CGSize size = [aString sizeWithFont:font constrainedToSize:labelSize lineBreakMode:NSLineBreakByWordWrapping];
+    return size.height;
+}
 @end

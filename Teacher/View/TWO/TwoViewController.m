@@ -14,6 +14,7 @@
     TwoCell *_cell;
     sign *signView;
     NSString *typeStr;
+    NSString *remarkString;
   
 }
 
@@ -99,8 +100,23 @@
       
     }else if ([choiceStr isEqualToString:@"306"]){
         typeStr = type;
+        remarkString = remarkStr;
         signView.hidden = YES;
         self.blackButton.hidden = YES;
+        [self show];
+        [[AFClient shareInstance] updateAttendance:@"480" withStatus:@"1" progressBlock:^(NSProgress *progress) {
+            
+        } success:^(id responseBody) {
+            if ([[responseBody valueForKey:@"code"] integerValue] == 0) {
+                
+                
+            }else{
+                [self Alert:responseBody[@"msg"]];
+            }
+            [self dismiss];
+        } failure:^(NSError *error) {
+            [self dismiss];
+        }];
     }
 }
 
