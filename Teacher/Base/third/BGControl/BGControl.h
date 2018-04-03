@@ -466,5 +466,7 @@
 + (NSString *)dateWithString:(NSString *)str;
 + (CAGradientLayer *)setGradualChangingColor:(UIView *)view fromColor:(UIColor *)fromHexColorStr toColor:(UIColor *)toHexColorStr;
 +(CGFloat)heightForRow:(NSString *)aString font:(UIFont *)font labelSize:(CGSize)labelSize;
+//时间戳转字符串时间
++(NSString *)timeStampForDateStringWith:(NSString *)timeStampStr;
 @end
 

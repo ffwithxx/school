@@ -22,47 +22,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Teacher/View/CourseAttendanceCell.m"
-            timestampString = "539173673.6166331"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "-buttonClick:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Teacher/View/CourseAttendanceCell.m"
-            timestampString = "539173673.6166919"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "-buttonClick:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Teacher/View/Three/ChoiceVC.m"
-            timestampString = "542087073.1551729"
+            timestampString = "544091477.465031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "-first"
             landmarkType = "7">
          </BreakpointContent>
@@ -82,16 +50,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Teacher/Base/AFCk/AFClient.m"
+            timestampString = "544357358.059791"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "517"
+            endingLineNumber = "517"
+            landmarkName = "-createBackWithDict:progressBlock:success:failure:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AFClient createBackWithDict:progressBlock:success:failure:]"
+                  moduleName = "Teacher"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fengli/Desktop/all/IOS%E9%A1%B9%E7%9B%AE/%E5%9B%BD%E9%99%85%E5%AD%A6%E6%A0%A1/%E5%9B%BD%E9%99%85%E5%AD%A6%E6%A0%A1/school/Teacher/Base/AFCk/AFClient.m"
+                  timestampString = "543133733.5276051"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "526"
+                  endingLineNumber = "526"
+                  offsetFromSymbolStart = "444">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__61-[AFClient createBackWithDict:progressBlock:success:failure:]_block_invoke"
+                  moduleName = "Teacher"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fengli/Desktop/all/IOS%E9%A1%B9%E7%9B%AE/%E5%9B%BD%E9%99%85%E5%AD%A6%E6%A0%A1/%E5%9B%BD%E9%99%85%E5%AD%A6%E6%A0%A1/school/Teacher/Base/AFCk/AFClient.m"
+                  timestampString = "543133733.531803"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "526"
+                  endingLineNumber = "526"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Teacher/Base/AFCk/AFClient.m"
-            timestampString = "542112004.266283"
+            timestampString = "544357358.059894"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "444"
-            endingLineNumber = "444"
-            landmarkName = "-updateAttendance:withStatus:progressBlock:success:failure:"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "-UpdatePasswordwithDict:progressBlock:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -102,45 +118,77 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Teacher/Base/AFCk/AFClient.m"
-            timestampString = "542112004.26661"
+            timestampString = "544357358.059945"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "429"
-            endingLineNumber = "429"
-            landmarkName = "-updateAttendance:withStatus:progressBlock:success:failure:"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "-UpdatePasswordwithDict:progressBlock:success:failure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Teacher/Base/AFCk/AFClient.m"
+            timestampString = "544357358.059991"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "456"
+            endingLineNumber = "456"
+            landmarkName = "-feedbackWithTeacherId:withType:progressBlock:success:failure:"
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[AFClient updateAttendance:withStatus:progressBlock:success:failure:]"
+                  symbolName = "-[AFClient feedbackWithTeacherId:withType:progressBlock:success:failure:]"
                   moduleName = "Teacher"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/fengli/Desktop/all/IOS%E9%A1%B9%E7%9B%AE/%E5%9B%BD%E9%99%85%E5%AD%A6%E6%A0%A1/%E5%9B%BD%E9%99%85%E5%AD%A6%E6%A0%A1/school/Teacher/Base/AFCk/AFClient.m"
-                  timestampString = "542112004.408807"
+                  timestampString = "544088705.930354"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "429"
-                  endingLineNumber = "429"
-                  offsetFromSymbolStart = "620">
+                  startingLineNumber = "456"
+                  endingLineNumber = "456"
+                  offsetFromSymbolStart = "612">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__70-[AFClient updateAttendance:withStatus:progressBlock:success:failure:]_block_invoke"
+                  symbolName = "__73-[AFClient feedbackWithTeacherId:withType:progressBlock:success:failure:]_block_invoke"
                   moduleName = "Teacher"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/fengli/Desktop/all/IOS%E9%A1%B9%E7%9B%AE/%E5%9B%BD%E9%99%85%E5%AD%A6%E6%A0%A1/%E5%9B%BD%E9%99%85%E5%AD%A6%E6%A0%A1/school/Teacher/Base/AFCk/AFClient.m"
-                  timestampString = "542112004.411603"
+                  timestampString = "544088705.933165"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "429"
-                  endingLineNumber = "429"
+                  startingLineNumber = "456"
+                  endingLineNumber = "456"
                   offsetFromSymbolStart = "24">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Teacher/Base/AFCk/AFClient.m"
+            timestampString = "544357358.060342"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "596"
+            endingLineNumber = "596"
+            landmarkName = "-attendanceByTeacher:progressBlock:success:failure:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

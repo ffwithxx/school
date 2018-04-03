@@ -11,5 +11,10 @@
 @interface TwoViewController : JJBaseController
 @property (strong, nonatomic) IBOutlet UIView *topView;
 @property (strong, nonatomic) IBOutlet UITableView *bigTableView;
+@property (strong, nonatomic) IBOutlet UILabel *projectLab;
+@property (strong, nonatomic) IBOutlet UILabel *timeLab;
+@property (strong, nonatomic) IBOutlet UILabel *dateLab;
+@property (strong, nonatomic) IBOutlet UILabel *addressLab;
 
+@property (strong, nonatomic) IBOutlet UILabel *classLab;
 @end

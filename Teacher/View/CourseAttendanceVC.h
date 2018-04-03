@@ -24,5 +24,6 @@
 @property (strong, nonatomic) IBOutlet UIView *bottomView;
 @property (strong, nonatomic) IBOutlet UITableView *bigTableView;
 @property (strong, nonatomic) NSString *scheduleIdStr;
-
+@property (strong, nonatomic) NSString *sid;
+@property (strong, nonatomic) NSString *stime;
 @end

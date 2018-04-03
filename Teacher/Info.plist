@@ -2,10 +2,35 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en</string>
+    <key>CFBundleDocumentTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeName</key>
+            <string></string>
+            <key>LSHandlerRank</key>
+            <string>Default</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>com.adobe.pdf</string>
+                <string>com.microsoft.word.doc</string>
+                <string>com.microsoft.powerpoint.ppt</string>
+                <string>public.item</string>
+                <string>public.data</string>
+                <string>public.text</string>
+                <string>public.content</string>
+                <string>public.composite-content</string>
+            </array>
+        </dict>
+    </array>
+    
+    
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+    
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

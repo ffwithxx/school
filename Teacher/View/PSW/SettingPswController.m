@@ -28,15 +28,14 @@
         self.naviView.frame = CGRectMake(0, 0, kScreenSize.width, kNavHeight);
         self.bigView.frame = CGRectMake(0, kNavHeight, kScreenSize.width, kScreenSize.height-kNavHeight);
     }
-    self.navigationItem.title = @"修改密码";
-     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
-    CGRect frame = self.naviView.frame;
-    if (kiPhoneX) {
-        frame.size.height = 88;
-    }
-    [self.naviView setFrame:frame];
-    // Do any additional setup after loading the view.
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationItem.title = @"修改密码";
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.hidden = NO;
 }
 - (IBAction)buttonClick:(UIButton *)sender {
     if (sender.tag == 201) {
@@ -72,7 +71,9 @@
                      self.PSWText.text = @"";
                      self.oneMorePswText.text = @"";
                      [self Alert:@"保存成功!"];
-                     
+                     [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:@"psw"];
+                     [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:@"user"];
+                      [[NSNotificationCenter defaultCenter] postNotificationName:@"tLogin" object:nil];
                  }else{
                      [self Alert:responseBody[@"msg"]];
                  }
@@ -89,11 +90,6 @@
     
     [LYMessageToast toastWithText:AlertStr backgroundColor:[UIColor blackColor] font:[UIFont systemFontOfSize:15] fontColor:[UIColor whiteColor] duration:2.f inView:self.view];
     
-}
-- (void)viewWillAppear:(BOOL)animated {
-        [super viewWillAppear:animated];
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    //
 }
 
 //点击屏幕空白处去掉键盘

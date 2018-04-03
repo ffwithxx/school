@@ -845,9 +845,7 @@ CGRect oldframe;
     UIImageView *imageView=(UIImageView*)[tap.view viewWithTag:1];
     
     [UIView animateWithDuration:0.3 animations:^{
-        
         imageView.frame=oldframe;
-        
         backgroundView.alpha=0;
     }
                      completion:^(BOOL finished) {
@@ -865,7 +863,9 @@ CGRect oldframe;
     if (str == NULL) {
         return YES;
     }
-    
+    if ([str isEqualToString:@"NULL"]) {
+        return YES;
+    }
     if ([@"" isEqualToString:str]) {
         return YES;
     }
@@ -1017,36 +1017,36 @@ CGRect oldframe;
     NSTimeInterval createTime = [inter longLongValue]/1000;
     // 时间差
     NSTimeInterval time = currentTime - createTime;
-//    if (time<59) {
-//        
-//        return Localized(@"刚刚");
-//    }
-//    
-//    
-//    
-//    NSInteger temp = time/60;
-//    if (temp<60) {
-//        return [NSString stringWithFormat:@"%ld%@",temp,Localized(@"分钟前")];
-//    }
-//    
-//    // 秒转小时
-//    NSInteger hours = time/3600;
-//    if (hours<24) {
-//        return [NSString stringWithFormat:@"%ld%@",hours,Localized(@"小时前")];
-//    }
-//    //秒转天数
-//    NSInteger days = time/3600/24;
-//    if (days < 30) {
-//        return [NSString stringWithFormat:@"%ld%@",days,Localized(@"天前")];
-//    }
-//    //秒转月
-//    NSInteger months = time/3600/24/30;
-//    if (months < 12) {
-//        return [NSString stringWithFormat:@"%ld%@",months,Localized(@"月前")];
-//    }
-//    //秒转年
-//    NSInteger years = time/3600/24/30/12;
-//    return [NSString stringWithFormat:@"%ld%@",years,Localized(@"年前")];
+    if (time<59) {
+        
+        return @"刚刚";
+    }
+    
+    
+    
+    NSInteger temp = time/60;
+    if (temp<60) {
+        return [NSString stringWithFormat:@"%ld%@",temp,@"分钟前"];
+    }
+    
+    // 秒转小时
+    NSInteger hours = time/3600;
+    if (hours<24) {
+        return [NSString stringWithFormat:@"%ld%@",hours,@"小时前"];
+    }
+    //秒转天数
+    NSInteger days = time/3600/24;
+    if (days < 30) {
+        return [NSString stringWithFormat:@"%ld%@",days,@"天前"];
+    }
+    //秒转月
+    NSInteger months = time/3600/24/30;
+    if (months < 12) {
+        return [NSString stringWithFormat:@"%ld%@",months,@"月前"];
+    }
+    //秒转年
+    NSInteger years = time/3600/24/30/12;
+    return [NSString stringWithFormat:@"%ld%@",years,@"年前"];
   
     return nil;
    
@@ -1451,5 +1451,17 @@ CGRect oldframe;
 +(CGFloat)heightForRow:(NSString *)aString font:(UIFont *)font labelSize:(CGSize)labelSize {
     CGSize size = [aString sizeWithFont:font constrainedToSize:labelSize lineBreakMode:NSLineBreakByWordWrapping];
     return size.height;
+}
+
+//时间戳转字符串时间
++(NSString *)timeStampForDateStringWith:(NSString *)timeStampStr {
+
+    NSTimeInterval interval    =[timeStampStr doubleValue] / 1000.0;
+    NSDate *date  = [NSDate dateWithTimeIntervalSince1970:interval];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *dateString = [formatter stringFromDate: date];
+    return dateString;
 }
 @end

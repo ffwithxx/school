@@ -29,7 +29,7 @@ typedef void(^FailureBlcok)(NSError *error);
 //2.教师个人资料接口
 - (void)infoByStr:(NSString*)str progressBlock:(ProgressBlock)progress success:(SuccessBlock)success failure:(FailureBlcok)failure;
 //3.教师考勤管理接口
-- (void)attendance:(NSString*)str progressBlock:(ProgressBlock)progress success:(SuccessBlock)success failure:(FailureBlcok)failure;
+- (void)attendance:(NSString*)sid withStime:(NSString *)stime progressBlock:(ProgressBlock)progress success:(SuccessBlock)success failure:(FailureBlcok)failure;
 //5.教师修改个人密码
 - (void)UpdatePasswordwithDict:(NSDictionary *)dataDict progressBlock:(ProgressBlock)progress success:(SuccessBlock)success failure:(FailureBlcok)failure;
 //6.app查询消息公告
@@ -43,4 +43,24 @@ typedef void(^FailureBlcok)(NSError *error);
 - (void)postFile:(NSString *)file  progressBlock:(ProgressBlock)progress success:(SuccessBlock)success failure:(FailureBlcok)failure;
 //3.1 修改考勤(状态)接口
 - (void)updateAttendance:(NSString *)studentId withStatus:(NSString *)status progressBlock:(ProgressBlock)progress success:(SuccessBlock)success failure:(FailureBlcok)failure;
+//4.查询发布
+- (void)feedbackWithTeacherId:(NSString *)teacherId withType:(NSString *)type progressBlock:(ProgressBlock)progress success:(SuccessBlock)success failure:(FailureBlcok)failure;
+
+//5.根据教师查询学生
+- (void)techerFeedBackWithStudentId:(NSString *)StudentId withContent:(NSString *)content withFeedbackId:(NSString *)feedbackId progressBlock:(ProgressBlock)progress success:(SuccessBlock)success failure:(FailureBlcok)failure;
+
+//1.新增发布
+- (void)createBackWithDict:(NSDictionary *)dict progressBlock:(ProgressBlock)progress success:(SuccessBlock)success failure:(FailureBlcok)failure;
+//4.1查询回复发布详情
+-(void)FeedbackWithDetailWithDict:(NSDictionary *)dict progressBlock:(ProgressBlock)progress success:(SuccessBlock)success failure:(FailureBlcok)failure;
+
+- (void)attendanceByTeacher:(NSString *)teacherId progressBlock:(ProgressBlock)progress success:(SuccessBlock)success failure:(FailureBlcok)failure;
++ (NSURLSessionTask *)downloadWithURL:(NSString *)URL
+                              fileDir:(NSString *)fileDir
+                             progress:(ProgressBlock)progress
+                              success:(SuccessBlock)success
+                              failure:(FailureBlcok)failure;
+
+- (void)postOneFileNameone:(NSData* )data withFileName:(NSString *)fileName progressBlock:(ProgressBlock)progress success:(SuccessBlock)success failure:(FailureBlcok)failure;
+
 @end

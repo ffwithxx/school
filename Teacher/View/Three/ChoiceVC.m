@@ -33,14 +33,14 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationItem.title = @"消息中心";
+    self.navigationItem.title = @"选择";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.hidden = NO;
 }
 
 - (void)first {
-    [self show];
+    
     NSString *jsonString = [[NSUserDefaults standardUserDefaults]valueForKey:@"loginData"];
     NSDictionary  *userInfoDict = [[BGControl dictionaryWithJsonString:jsonString] valueForKey:@"userInfo"];
     NSString *url ;
@@ -60,7 +60,7 @@
      [dict setValue:[NSString stringWithFormat:@"%@",[userInfoDict valueForKey:@"schoolPid"]] forKey:@"parentId"];
     }else if (self.tag == 304) {
         url = @"project/get";
-        [dict setValue:[NSString stringWithFormat:@"%@",[userInfoDict valueForKey:@"schoolPid"]] forKey:@"schoolPid"];
+        [dict setValue:[NSString stringWithFormat:@"%@",self.schoolId] forKey:@"schoolId"];
     }else if (self.tag == 305) {
         url = @"grade/get";
         if ([BGControl isNULLOfString:self.projectId]) {
@@ -77,18 +77,18 @@
         [dict setValue:self.gradeId forKey:@"gradeId"];
     }else if (self.tag == 307) {
         url = @"course/get";
-        if ([BGControl isNULLOfString:self.projectId]) {
-            [self Alert:@"请先选择项目"];
+        if ([BGControl isNULLOfString:self.schoolId]) {
+            [self Alert:@"请先选择校区"];
             return;
         }
-        [dict setValue:self.projectId forKey:@"projectId"];
+        [dict setValue:self.schoolId forKey:@"schoolId"];
     }else if (self.tag == 308) {
-        url = @"examType/get";
-        if ([BGControl isNULLOfString:self.projectId]) {
-            [self Alert:@"请先选择项目"];
+        url = @"examTypeApp/get";
+        if ([BGControl isNULLOfString:self.schoolId]) {
+            [self Alert:@"请先选择校区"];
             return;
         }
-        [dict setValue:self.projectId forKey:@"projectId"];
+        [dict setValue:[userInfoDict valueForKey:@"schoolPid"] forKey:@"schoolPid"];
     }else if (self.tag == 309) {
         url = @"exam/get";
         if ([BGControl isNULLOfString:self.examTypeId]) {
@@ -104,6 +104,7 @@
         }
         [dict setValue:self.examId forKey:@"examId"];
     }
+    [self show];
     [[AFClient shareInstance] getResultwithUrlStr:url withDict:dict progressBlock:^(NSProgress *progress) {
         
     } success:^(id responseBody) {

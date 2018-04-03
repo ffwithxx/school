@@ -10,7 +10,7 @@
 
 @protocol attendanceDelegate <NSObject>
 @optional
-- (void)postTagStr:(NSString *)tagStr;
+- (void)postTagStr:(NSString *)tagStr withIdStr:(NSString *)idStr;
 @end
 
 
@@ -20,5 +20,5 @@
 @property (strong, nonatomic) IBOutlet UIButton *signBth;
 @property (strong, nonatomic) IBOutlet UIImageView *iconImgView;
 @property (strong, nonatomic) id<attendanceDelegate> attendanceDelegate;
-- (void)showModel;
+- (void)showModelWithDict:(NSDictionary *)dict;
 @end

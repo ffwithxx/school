@@ -31,7 +31,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-        self.navigationItem.title = @"修改密码";
+        self.navigationItem.title = @"个人信息";
      [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.hidden = NO;
@@ -40,12 +40,12 @@
          NSString *jsonString = [[NSUserDefaults standardUserDefaults]valueForKey:@"loginData"];
             NSDictionary *dict = [[BGControl dictionaryWithJsonString:jsonString] valueForKey:@"userInfo"];
    
-        self.nameLab.text = [BGControl textIsNull: [dict valueForKey:@"nameCn"]];
+            self.nameLab.text = [BGControl textIsNull: [dict valueForKey:@"nameCn"]];
             self.eNameLab.text =  [BGControl textIsNull: [dict valueForKey:@"nameEn"]];
             self.sexLab.text = [BGControl textIsNull:[dict valueForKey:@"sex"]] ;
             self.guojiLab.text =[BGControl textIsNull:[dict valueForKey:@"country"]] ;
             self.birthdayLab.text = [BGControl textIsNull:[dict valueForKey:@"birthday"]];
-            self.ageLab.text =[BGControl textIsNull:[dict valueForKey:@"age"]];
+            self.ageLab.text =[BGControl textIsNull:[NSString stringWithFormat:@"%@",[dict valueForKey:@"age"]]];
             self.shenfenLab.text = [BGControl textIsNull:[dict valueForKey:@"idCard"]] ;
             self.passportLab.text =[BGControl textIsNull:[NSString stringWithFormat:@"%@",[dict valueForKey:@"passport"]]] ;
     

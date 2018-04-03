@@ -102,7 +102,7 @@
     NSDictionary *studentDict = [dict valueForKey:@"classBeans"][indexPath.row];
     NSString *studentStr = [studentDict valueForKey:@"sid"];
     if (_delegate && [_delegate respondsToSelector:@selector(postStudent:withclassId:)]) {
-        [_delegate postStudent:studentDict withclassId:classStr];
+        [_delegate postStudent:studentDict withclassId:studentStr];
         [self.navigationController popViewControllerAnimated:YES];
     }
     

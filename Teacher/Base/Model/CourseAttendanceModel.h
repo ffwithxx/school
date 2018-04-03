@@ -21,6 +21,7 @@
 @property (nonatomic)NSString *studentId;
 @property (nonatomic)NSString *studentName;
 @property (nonatomic)NSString *updateAt;
+@property (nonatomic)NSString *mark;
 @property (nonatomic)NSInteger maxHei;
 @property (nonatomic)NSInteger index;
 @property (nonatomic)NSInteger open;

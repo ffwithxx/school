@@ -14,6 +14,7 @@
 #import "JJSelectView.h"
 #import "AppDelegate.h"
 #import "MessageCenterVC.h"
+#import "BGControl.h"
 @interface MainPageViewController ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource,JJSelectViewDelegate>
 @property (nonatomic, strong) NSArray *controllers;
 @property (nonatomic, assign) NSInteger contronIndex;
@@ -54,7 +55,9 @@
     _selectcView.leftImg.image = [UIImage imageNamed:@"navi_icon_han.png"] ;
     _selectcView.rightImg.image =[UIImage imageNamed:@"navi_icon_news.png"];
 
-    _selectcView.titleLab.text = @"HI!LILY";
+    NSString *jsonString = [[NSUserDefaults standardUserDefaults]valueForKey:@"loginData"];
+    NSDictionary *userInfoDict = [[BGControl dictionaryWithJsonString:jsonString] valueForKey:@"userInfo"];
+    _selectcView.titleLab.text =[NSString stringWithFormat:@"%@ %@",@"HI",[userInfoDict valueForKey:@"nameCn"]];
     _selectcView.titleLab.textColor = [UIColor whiteColor];
     _selectcView.titleLab.font = [UIFont systemFontOfSize:18];
     CGRect leftImgFrame = _selectcView.leftImg.frame;

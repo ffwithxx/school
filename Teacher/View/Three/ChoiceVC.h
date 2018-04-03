@@ -21,6 +21,7 @@
 
 @property(nonatomic, strong) NSString  *schoolYearId;//学年
 @property(nonatomic, strong) NSString  *projectId;//项目Id
+@property(nonatomic, strong) NSString  *schoolId;//项目Id
 @property(nonatomic, strong) NSString  *gradeId;//年级Id
 @property(nonatomic, strong) NSString  *examTypeId;//考试类型Id
 @property(nonatomic, strong) NSString  *examId;//学期Id

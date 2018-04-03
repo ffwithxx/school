@@ -10,6 +10,7 @@
 #import "SettingPswController.h"
 #import "AppDelegate.h"
 #import "MemberShipVC.h"
+#import "BGControl.h"
 
 @interface LeftViewController ()
 
@@ -19,7 +20,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self first];
     // Do any additional setup after loading the view.
+}
+
+
+- (void)first {
+    NSString *jsonString = [[NSUserDefaults standardUserDefaults]valueForKey:@"loginData"];
+    NSDictionary *userInfoDict = [[BGControl dictionaryWithJsonString:jsonString] valueForKey:@"userInfo"];
+    self.nameLab.text =[NSString stringWithFormat:@"%@ %@",@"HI",[userInfoDict valueForKey:@"nameCn"]];
+    self.IdNumLab.text = [NSString stringWithFormat:@"%@",[userInfoDict valueForKey:@"jobCode"]];
+    self.positionLab.text = [BGControl textIsNull: [userInfoDict valueForKey:@"jobName"]];
 }
 
 /**
@@ -47,6 +58,7 @@
        
     }else if (sender.tag == 204){
         
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"tLogin" object:nil];
     }
 
 }

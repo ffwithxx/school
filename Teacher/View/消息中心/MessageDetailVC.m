@@ -39,13 +39,16 @@
     NSString *fabu = [self.dataDict valueForKey:@"postByName"];
     self.timeLab.text  = [NSString stringWithFormat:@"%@    %@",timeLab,fabu];
     self.detailLab.text = [self.dataDict valueForKey:@"content"];
-    self.downNameLab.text =[self.dataDict valueForKey:@"title"];
+   self.downNameLab.text =[self.dataDict valueForKey:@"txtName"];
     CGFloat titleHei = [BGControl getSpaceLabelHeight:self.DetailTitleLab.text withFont:[UIFont systemFontOfSize:17] withWidth:kScreenSize.width - 30];
     self.DetailTitleLab.frame = CGRectMake(15, 20, kScreenSize.width-30, titleHei);
     self.timeLab.frame = CGRectMake(15, titleHei+30, kScreenSize.width-30, 25);
     self.oneView.frame = CGRectMake(0, 0, kScreenSize.width, titleHei+65);
     CGFloat detailHei = [BGControl getSpaceLabelHeight:self.detailLab.text withFont:[UIFont systemFontOfSize:15] withWidth:kScreenSize.width - 30];
     self.detailLab.frame = CGRectMake(15, 15, kScreenSize.width-30, detailHei);
+    self.threeView.layer.cornerRadius = 5.f;
+    self.threeView.layer.borderColor = KLineColor.CGColor;
+    self.threeView.layer.borderWidth = 1.f;
     self.threeView.frame = CGRectMake(15, detailHei+25, kScreenSize.width-30, 50);
     self.twoView.frame = CGRectMake(0,  titleHei+65, kScreenSize.width, 85+detailHei);
     self.bigScrollview.contentSize = CGSizeMake(kScreenSize.width,CGRectGetMaxY(self.twoView.frame));
@@ -55,7 +58,8 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)downClick:(UIButton *)sender {
-    [self downloadFile];
+    [self Alert:@"暂不支持此功能！"];
+//    [self downloadFile];
 }
 - (void)downloadFile{
     

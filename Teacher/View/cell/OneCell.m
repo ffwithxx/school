@@ -19,8 +19,8 @@
     // Initialization code
 }
 - (IBAction)buttonClick:(UIButton *)sender {
-    if ( _signDelegate && [_signDelegate respondsToSelector:@selector(postStr:)]) {
-        [_signDelegate postStr:oneModel.scheduleId];
+    if ( _signDelegate && [_signDelegate respondsToSelector:@selector(postIdStr:withStime:)]) {
+        [_signDelegate postIdStr:oneModel.id withStime:oneModel.time];
     }
 }
 -(void)showModelWith:(TeacherScheduleModel *)model{
@@ -28,8 +28,8 @@
     self.signBth.layer.cornerRadius = 5.f;
     self.signBth.layer.borderColor = KTabBarColor.CGColor;
     self.signBth.layer.borderWidth = 1.f;
-    self.timeLab.text = model.time;
-    self.kemuLab.text = model.courseName;
+    self.timeLab.text = [NSString stringWithFormat:@"%@%@%@",model.timeStart,@"-",model.timeOff];
+    self.kemuLab.text = model.pojeckName;
     
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

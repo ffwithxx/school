@@ -24,12 +24,13 @@
 - (void)showModel:(CourseAttendanceModel *)model {
     modelOne = model;
     self.nameLab.text = model.studentName;
-    self.remarkLab.text = model.note;
+    self.remarkLab.text = model.mark;
     self.typeBth.layer.cornerRadius = 5.f;
-    if ([model.status isEqualToString:@"0"]) {
+    if ([model.status isEqualToString:@"0"]||[model.status isEqualToString:@"5"]) {
         [self.typeBth setTitle:@"上课" forState:UIControlStateNormal];
-        [self.typeBth setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.typeBth setBackgroundColor:KTabBarColor];
+        [self.typeBth setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
     }else if ([model.status isEqualToString:@"1"]) {
          [self.typeBth setTitle:@"迟到" forState:UIControlStateNormal];
         [self.typeBth setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

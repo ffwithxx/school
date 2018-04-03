@@ -39,20 +39,21 @@
      sixArr = [NSMutableArray array];
      sevenArr = [NSMutableArray array];
     self.bigTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self createTimeView];
-    [self getData];
+    self.bottomView.hidden = YES;
+    
     // Do any additional setup after loading the view.
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
+    [self createTimeView];
+    [self getData];
 }
 
 - (void)createTimeView {
     NSArray *weekArr = @[@"日",@"一",@"二",@"三",@"四",@"五",@"六"];
     CGFloat weekLabWidth = kScreenSize.width/7;
   
-    
     NSArray *dateOneArr = [self getCurrentWeek];
     NSArray *arr = [[NSArray alloc] init];
     arr = [today componentsSeparatedByString:@"-"];
@@ -93,25 +94,40 @@
         
     } success:^(id responseBody) {
         if ([[responseBody valueForKey:@"code"] integerValue] == 0) {
-          
+          [oneArr removeAllObjects];
+              [twoArr removeAllObjects];
+             [threeArr removeAllObjects];
+            [fourArr removeAllObjects];
+            [fiveArr removeAllObjects];
+            [sixArr removeAllObjects];
+             [sevenArr removeAllObjects];
             NSArray *arr = responseBody[@"data"];
             for (int i = 0; i < arr.count; i++) {
                 NSDictionary *dict = arr[i];
                 TeacherScheduleModel *model = [TeacherScheduleModel new];
+                
                 [model setValuesForKeysWithDictionary:dict];
-                if ([[dict valueForKey:@"weekDay"] integerValue] == 1) {
+                 model.time = [dict valueForKey:@"attendanceDate"];
+                if ([[dict valueForKey:@"weekday"] integerValue] == 1) {
+                    
                     [oneArr addObject:model];
-                }else if ([[dict valueForKey:@"weekDay"] integerValue] == 2) {
+                }else if ([[dict valueForKey:@"weekday"] integerValue] == 2) {
+                   
                      [twoArr addObject:model];
-                }else if ([[dict valueForKey:@"weekDay"] integerValue] == 3) {
+                }else if ([[dict valueForKey:@"weekday"] integerValue] == 3) {
+                    
                     [threeArr addObject:model];
-                }else if ([[dict valueForKey:@"weekDay"] integerValue] == 4) {
+                }else if ([[dict valueForKey:@"weekday"] integerValue] == 4) {
+                    
                     [fourArr addObject:model];
-                }else if ([[dict valueForKey:@"weekDay"] integerValue] == 5) {
+                }else if ([[dict valueForKey:@"weekday"] integerValue] == 5) {
+                    
                     [fiveArr addObject:model];
-                }else if ([[dict valueForKey:@"weekDay"] integerValue] == 6) {
+                }else if ([[dict valueForKey:@"weekday"] integerValue] == 6) {
+                    
                     [sixArr addObject:model];
-                }else if ([[dict valueForKey:@"weekDay"] integerValue] == 7) {
+                }else if ([[dict valueForKey:@"weekday"] integerValue] == 7) {
+                    
                     [sevenArr addObject:model];
                 }
             }
@@ -128,20 +144,27 @@
     }];
 }
 - (void)dateClick:(UIButton *)bth {
-    UIButton *find_bth = (UIButton *)[self.view viewWithTag:selectIndex];
+    for (UIButton *findLabel in self.timeView.subviews) {
+        if (findLabel.tag == selectIndex)
+        {
+            [findLabel setBackgroundColor:[UIColor whiteColor]];
+            findLabel.titleLabel.textColor = KTextBlackColor;
+            
+        }
+    }
     
-    [find_bth setBackgroundColor:[UIColor whiteColor]];
-    find_bth.titleLabel.textColor = KTextBlackColor;
-    UIButton *select_bth = (UIButton *)[self.view viewWithTag:bth.tag];
-    [select_bth setBackgroundColor:KTabBarColor];
-    [select_bth setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    select_bth.clipsToBounds = YES;
-    select_bth.layer.cornerRadius = 15.f;
-    selectIndex = bth.tag;
-    selectIndex = bth.tag;
-    [self.bigTableView reloadData];
+    for (UIButton *findLabel in self.timeView.subviews) {
+        if (findLabel.tag == bth.tag)
+        {
+            [findLabel setBackgroundColor:KTabBarColor];
+            [findLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            findLabel.clipsToBounds = YES;
+            findLabel.layer.cornerRadius = 15.f;
+            selectIndex = bth.tag;
+        }
+    }
     
-    
+     [self.bigTableView reloadData];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     _cell = [tableView dequeueReusableCellWithIdentifier:kCellName];
@@ -175,10 +198,12 @@
     
     
 }
-- (void)postStr:(NSString *)Str {
+- (void)postIdStr:(NSString *)Str withStime:(NSString *)stime {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     CourseAttendanceVC *detail = [storyboard instantiateViewControllerWithIdentifier:@"CourseAttendanceVC"];
-    detail.scheduleIdStr = Str;
+//    detail.scheduleIdStr = Str;
+    detail.sid = Str;
+    detail.stime = stime;
     [self.navigationController pushViewController:detail animated:YES];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -210,6 +235,36 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    TeacherScheduleModel *model = [TeacherScheduleModel new];
+    if (selectIndex == 500) {
+        model = sevenArr[indexPath.row];
+        self.shoukeDateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周日"];
+    }else if (selectIndex == 501){
+        model = oneArr[indexPath.row];
+         self.shoukeDateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周一"];
+    }else if (selectIndex == 502){
+        model = twoArr[indexPath.row];
+        self.shoukeDateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周二"];
+    }else if (selectIndex == 503){
+        model = threeArr[indexPath.row];
+         self.shoukeDateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周三"];
+    }else if (selectIndex == 504){
+        model = fourArr[indexPath.row];
+         self.shoukeDateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周四"];
+    }else if (selectIndex == 505){
+        model = fiveArr[indexPath.row];
+         self.shoukeDateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周五"];
+    }else if (selectIndex == 506){
+        model = sixArr[indexPath.row];
+         self.shoukeDateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周六"];
+    }
+    self.addressLab.text =[NSString stringWithFormat:@"%@:%@",@"授课地点",model.classroomName];
+    self.classLab.text =[NSString stringWithFormat:@"%@:%@",@"授课班级",model.gradeName];
+    self.nameLab.text = model.pojeckName;
+    if (self.bottomView.hidden == YES) {
+       self.bottomView.hidden = NO;
+    }
+    
     
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -296,6 +351,9 @@
     
     [LYMessageToast toastWithText:AlertStr backgroundColor:[UIColor blackColor] font:[UIFont systemFontOfSize:15] fontColor:[UIColor whiteColor] duration:2.f inView:[[UIApplication sharedApplication].windows lastObject]];
     
+}
+- (IBAction)cancleClick:(UIButton *)sender {
+    self.bottomView.hidden = YES;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

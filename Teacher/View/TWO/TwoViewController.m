@@ -15,6 +15,10 @@
     sign *signView;
     NSString *typeStr;
     NSString *remarkString;
+    NSString *statusStr;
+    NSDictionary *dataDict;
+    NSString *postIdStr;
+    
   
 }
 
@@ -25,16 +29,67 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     typeStr = @"301";
+    self.dataArray = [[NSMutableArray alloc] init];
     self.topView.frame = CGRectMake(0, 0, kScreenSize.width, 130);
     [self.bigTableView setTableHeaderView:self.topView];
     self.bigTableView.showsVerticalScrollIndicator = NO;
     self.bigTableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
+    [self first];
 }
-
+- (void)first {
+    [self show];
+    [[AFClient shareInstance] attendanceByTeacher:@"str" progressBlock:^(NSProgress *progress) {
+        
+    } success:^(id responseBody) {
+        if ([[responseBody valueForKey:@"code"] integerValue] == 0) {
+            [self.dataArray removeAllObjects];
+            NSArray *arrOne = responseBody[@"data"];
+         
+            if (arrOne.count >0) {
+                dataDict = responseBody[@"data"][0];
+                NSArray *arr = [dataDict valueForKey:@"attendances"];
+                self.dataArray = [NSMutableArray arrayWithArray:arr];
+                
+                self.projectLab.text = [NSString stringWithFormat:@"%@%@%@",@"《",[dataDict valueForKey:@"pojeckName"],@"》"];
+                self.timeLab.text = [NSString stringWithFormat:@"%@%@%@",[dataDict valueForKey:@"timeStart"],@"-",[dataDict valueForKey:@"timeOff"]];
+                if ([[dataDict valueForKey:@"weekday"] integerValue] == 1) {
+                    self.dateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周一"];
+                }else if ([[dataDict valueForKey:@"weekday"] integerValue] == 2) {
+                    self.dateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周二"];
+                }else if ([[dataDict valueForKey:@"weekday"] integerValue] == 3) {
+                    self.dateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周三"];
+                }else if ([[dataDict valueForKey:@"weekday"] integerValue] == 4) {
+                    self.dateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周四"];
+                }else if ([[dataDict valueForKey:@"weekday"] integerValue] == 5) {
+                    self.dateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周五"];
+                }else if ([[dataDict valueForKey:@"weekday"] integerValue] == 6) {
+                    self.dateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周六"];
+                }else if ([[dataDict valueForKey:@"weekday"] integerValue] == 7) {
+                    self.dateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周日"];
+                }
+                
+                self.addressLab.text = [NSString stringWithFormat:@"%@:%@",@"授课地点",[dataDict valueForKey:@"classroomName"]];
+                
+                self.classLab.text = [NSString stringWithFormat:@"%@:%@",@"授课班级",[dataDict valueForKey:@"className"]];
+            }
+            
+     
+            [self.bigTableView reloadData];
+            [self dismiss];
+        }else{
+            [self dismiss];
+            [self Alert:responseBody[@"msg"]];
+        }
+        [self dismiss];
+    } failure:^(NSError *error) {
+         [self dismiss];
+    }];
+}
 /**
  topview点击
 
@@ -44,13 +99,16 @@
     
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return self.dataArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 55;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     _cell = [tableView dequeueReusableCellWithIdentifier:kCellName];
     if (!_cell) {
@@ -62,7 +120,8 @@
     cellFrame.size.width = kScreenSize.width;
     _cell.attendanceDelegate = self;
     [_cell.contentView setFrame:cellFrame];
-    [_cell showModel];
+    
+    [_cell showModelWithDict:self.dataArray[indexPath.row]];
     return _cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -76,8 +135,9 @@
 
 #pragma  点击事件代理
 
-- (void)postTagStr:(NSString *)tagStr {
+- (void)postTagStr:(NSString *)tagStr withIdStr:(NSString *)idStr{
     if ([tagStr isEqualToString:@"301"]) {
+        postIdStr = idStr;
         NSArray *nib = [[NSBundle mainBundle]loadNibNamed:@"sign" owner:self options:nil];
         signView = [nib firstObject];
         self.blackButton.hidden = NO;
@@ -87,7 +147,6 @@
         signView.clipsToBounds = YES;
         signView.layer.cornerRadius = 10.f;
         signView.remarkTextView.delegate = self;
-        
         [self changeTwo:signView];
     }
 }
@@ -103,12 +162,21 @@
         remarkString = remarkStr;
         signView.hidden = YES;
         self.blackButton.hidden = YES;
+        if ([type isEqualToString:@"301"]) {
+            statusStr = @"2";
+        }else if ([type isEqualToString:@"302"]) {
+           statusStr = @"1";
+        }else if ([type isEqualToString:@"303"]) {
+            statusStr = @"3";
+        }else if ([type isEqualToString:@"304"]) {
+            statusStr = @"4";
+        }
         [self show];
-        [[AFClient shareInstance] updateAttendance:@"480" withStatus:@"1" progressBlock:^(NSProgress *progress) {
+        [[AFClient shareInstance] updateAttendance:postIdStr withStatus:statusStr progressBlock:^(NSProgress *progress) {
             
         } success:^(id responseBody) {
             if ([[responseBody valueForKey:@"code"] integerValue] == 0) {
-                
+                [self first];
                 
             }else{
                 [self Alert:responseBody[@"msg"]];
@@ -229,11 +297,7 @@
         [signView.remarkTextView resignFirstResponder];
     }
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-}
+
 - (void)Alert:(NSString *)AlertStr{
     
     [LYMessageToast toastWithText:AlertStr backgroundColor:[UIColor blackColor] font:[UIFont systemFontOfSize:15] fontColor:[UIColor whiteColor] duration:2.f inView:[[UIApplication sharedApplication].windows lastObject]];

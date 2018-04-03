@@ -53,11 +53,38 @@
 }
 - (void)getData{
     [self show];
-    [[AFClient shareInstance] attendance:self.scheduleIdStr progressBlock:^(NSProgress *progress) {
+    [[AFClient shareInstance] attendance:self.sid withStime:self.stime progressBlock:^(NSProgress *progress) {
         
     } success:^(id responseBody) {
         if ([[responseBody valueForKey:@"code"] integerValue] == 0) {
-            NSArray *arr = [responseBody valueForKey:@"data"];
+            NSArray *arr = [[responseBody valueForKey:@"data"][0] valueForKey:@"attendances"];
+            NSDictionary *dict =[ [responseBody valueForKey:@"data"][0] valueForKey:@"attendanceSumNote"];
+            
+            self.oneLab.text = [NSString stringWithFormat:@"%@%@",@"上课",[dict valueForKey:@"attendClass"]];
+            self.twoLab.text = [NSString stringWithFormat:@"%@%@",@"请假",[dict valueForKey:@"leave"]];
+            self.threeLab.text = [NSString stringWithFormat:@"%@%@",@"迟到",[dict valueForKey:@"late"]];
+            self.fourLab.text = [NSString stringWithFormat:@"%@%@",@"早退",[dict valueForKey:@"leaveEarly"]];
+            self.fiveLab.text = [NSString stringWithFormat:@"%@%@",@"旷课",[dict valueForKey:@"truancy"]];
+            self.kemuLab.text =[NSString stringWithFormat:@"%@%@%@",@"《",[[responseBody valueForKey:@"data"][0] valueForKey:@"pojeckName"],@"》"];
+            self.timeLab.text = [NSString stringWithFormat:@"%@%@%@",[[responseBody valueForKey:@"data"][0] valueForKey:@"timeStart"],@"-",[[responseBody valueForKey:@"data"][0] valueForKey:@"timeOff"]];
+            NSInteger week = [[[responseBody valueForKey:@"data"][0] valueForKey:@"weekday"] integerValue];
+            if (week == 1) {
+                self.dateLab.text =[NSString stringWithFormat:@"%@:%@",@"授课日期",@"周一"];
+            }else if (week == 2) {
+                 self.dateLab.text =[NSString stringWithFormat:@"%@:%@",@"授课日期",@"周二"];
+            }else if (week == 3) {
+                self.dateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周三"];
+            }else if (week == 4) {
+                self.dateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周四"];
+            }else if (week == 5) {
+                self.dateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周五"];
+            }else if (week == 6) {
+                self.dateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周六"];
+            }else if (week == 7) {
+                self.dateLab.text = [NSString stringWithFormat:@"%@:%@",@"授课日期",@"周日"];
+            }
+            self.placeLab.text =[NSString stringWithFormat:@"%@:%@",@"授课地点",[[responseBody valueForKey:@"data"][0] valueForKey:@"classroomName"]];
+             self.banjiLab.text =[NSString stringWithFormat:@"%@:%@",@"授课班级",[[responseBody valueForKey:@"data"][0] valueForKey:@"gradeName"]];
             for (int i = 0 ; i < arr.count; i++) {
                 NSDictionary *dict = arr[i];
                 CourseAttendanceModel *model = [CourseAttendanceModel new];

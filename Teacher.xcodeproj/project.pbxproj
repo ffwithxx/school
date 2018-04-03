@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1202B64C205B56440025F720 /* feedBackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1202B64B205B56430025F720 /* feedBackModel.m */; };
+		1202B64F205BA0790025F720 /* ReplyBeans.m in Sources */ = {isa = PBXBuildFile; fileRef = 1202B64E205BA0790025F720 /* ReplyBeans.m */; };
 		1204201620075D7200D8E558 /* ManagementVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1204201520075D7200D8E558 /* ManagementVC.m */; };
 		1204201920075D9300D8E558 /* ManagementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1204201820075D9300D8E558 /* ManagementCell.m */; };
 		1206026E1FE794DD0041BBB2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1206026D1FE794DD0041BBB2 /* AppDelegate.m */; };
@@ -50,6 +52,8 @@
 		12481053204FCBB8006A22BE /* ELCOverlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1248104A204FCBB7006A22BE /* ELCOverlayImageView.m */; };
 		12481054204FCBB8006A22BE /* ELCConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = 1248104C204FCBB8006A22BE /* ELCConsole.m */; };
 		12481055204FCBB8006A22BE /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 1248104D204FCBB8006A22BE /* ELCAsset.m */; };
+		127375742068E4DB002B26F6 /* iCloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 127375702068E4DA002B26F6 /* iCloudManager.m */; };
+		127375752068E4DB002B26F6 /* ZHDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 127375712068E4DA002B26F6 /* ZHDocument.m */; };
 		127ADF711FFDC76B0081D102 /* MemberShipVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 127ADF701FFDC76B0081D102 /* MemberShipVC.m */; };
 		127ADF75200379280081D102 /* TwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 127ADF74200379280081D102 /* TwoCell.m */; };
 		127ADF7A20045AA80081D102 /* MessageCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 127ADF7920045AA80081D102 /* MessageCenterCell.m */; };
@@ -117,6 +121,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1202B64A205B56430025F720 /* feedBackModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = feedBackModel.h; sourceTree = "<group>"; };
+		1202B64B205B56430025F720 /* feedBackModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = feedBackModel.m; sourceTree = "<group>"; };
+		1202B64D205BA0790025F720 /* ReplyBeans.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplyBeans.h; sourceTree = "<group>"; };
+		1202B64E205BA0790025F720 /* ReplyBeans.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplyBeans.m; sourceTree = "<group>"; };
 		1204201420075D7200D8E558 /* ManagementVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManagementVC.h; sourceTree = "<group>"; };
 		1204201520075D7200D8E558 /* ManagementVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManagementVC.m; sourceTree = "<group>"; };
 		1204201720075D9300D8E558 /* ManagementCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManagementCell.h; sourceTree = "<group>"; };
@@ -191,6 +199,11 @@
 		1248104C204FCBB8006A22BE /* ELCConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCConsole.m; sourceTree = "<group>"; };
 		1248104D204FCBB8006A22BE /* ELCAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCAsset.m; sourceTree = "<group>"; };
 		1248104E204FCBB8006A22BE /* ELCAssetPickerFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetPickerFilterDelegate.h; sourceTree = "<group>"; };
+		127375702068E4DA002B26F6 /* iCloudManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCloudManager.m; sourceTree = "<group>"; };
+		127375712068E4DA002B26F6 /* ZHDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDocument.m; sourceTree = "<group>"; };
+		127375722068E4DA002B26F6 /* iCloudManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloudManager.h; sourceTree = "<group>"; };
+		127375732068E4DB002B26F6 /* ZHDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDocument.h; sourceTree = "<group>"; };
+		127375762068E85F002B26F6 /* Teacher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Teacher.entitlements; sourceTree = "<group>"; };
 		127ADF6F1FFDC76B0081D102 /* MemberShipVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberShipVC.h; sourceTree = "<group>"; };
 		127ADF701FFDC76B0081D102 /* MemberShipVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberShipVC.m; sourceTree = "<group>"; };
 		127ADF73200379280081D102 /* TwoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoCell.h; sourceTree = "<group>"; };
@@ -332,6 +345,7 @@
 		1206026B1FE794DD0041BBB2 /* Teacher */ = {
 			isa = PBXGroup;
 			children = (
+				127375762068E85F002B26F6 /* Teacher.entitlements */,
 				1206026C1FE794DD0041BBB2 /* AppDelegate.h */,
 				1206026D1FE794DD0041BBB2 /* AppDelegate.m */,
 				120602A71FE7A4760041BBB2 /* View */,
@@ -414,6 +428,7 @@
 		120602AC1FE7A5DB0041BBB2 /* third */ = {
 			isa = PBXGroup;
 			children = (
+				1273756F2068E4C5002B26F6 /* New Group */,
 				1248103D204FCBA9006A22BE /* 图片 */,
 				12481031204FCA17006A22BE /* SZCalendarPicker */,
 				128D695A2022C5E300546354 /* kantuViewController.h */,
@@ -496,6 +511,17 @@
 				1248104A204FCBB7006A22BE /* ELCOverlayImageView.m */,
 			);
 			path = "图片";
+			sourceTree = "<group>";
+		};
+		1273756F2068E4C5002B26F6 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				127375722068E4DA002B26F6 /* iCloudManager.h */,
+				127375702068E4DA002B26F6 /* iCloudManager.m */,
+				127375732068E4DB002B26F6 /* ZHDocument.h */,
+				127375712068E4DA002B26F6 /* ZHDocument.m */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		127ADF722003790D0081D102 /* TWO */ = {
@@ -642,6 +668,10 @@
 				128D69252020495800546354 /* TeacherScheduleModel.m */,
 				128D69272020573800546354 /* CourseAttendanceModel.h */,
 				128D69282020573800546354 /* CourseAttendanceModel.m */,
+				1202B64A205B56430025F720 /* feedBackModel.h */,
+				1202B64B205B56430025F720 /* feedBackModel.m */,
+				1202B64D205BA0790025F720 /* ReplyBeans.h */,
+				1202B64E205BA0790025F720 /* ReplyBeans.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -754,6 +784,11 @@
 					120602681FE794DD0041BBB2 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					120602801FE794DD0041BBB2 = {
 						CreatedOnToolsVersion = 9.2;
@@ -899,6 +934,7 @@
 				1283A8BE1FF63710001FDBDE /* LYImageToast.m in Sources */,
 				128D69262020495800546354 /* TeacherScheduleModel.m in Sources */,
 				1248103B204FCA24006A22BE /* SZCalendarCell.m in Sources */,
+				127375752068E4DB002B26F6 /* ZHDocument.m in Sources */,
 				1248103A204FCA24006A22BE /* UIColor+ZXLazy.m in Sources */,
 				128D692F2020717600546354 /* ChoiceCell.m in Sources */,
 				1206027C1FE794DD0041BBB2 /* main.m in Sources */,
@@ -925,12 +961,14 @@
 				1283A8961FF4E93B001FDBDE /* TwoViewController.m in Sources */,
 				1248103C204FCA24006A22BE /* SZCalendarPicker.m in Sources */,
 				127ADF7A20045AA80081D102 /* MessageCenterCell.m in Sources */,
+				1202B64F205BA0790025F720 /* ReplyBeans.m in Sources */,
 				1283A8521FEC9E0B001FDBDE /* LoginViewController.m in Sources */,
 				1248102A204F828B006A22BE /* StudentsVC.m in Sources */,
 				127ADF922006084E0081D102 /* TestScoresCell.m in Sources */,
 				128D695C2022C5E400546354 /* kantuViewController.m in Sources */,
 				1283A8991FF4E948001FDBDE /* ThreeViewController.m in Sources */,
 				127ADF8C2005E8DA0081D102 /* CourseAttendanceCell.m in Sources */,
+				1202B64C205B56440025F720 /* feedBackModel.m in Sources */,
 				127ADF802005AE7B0081D102 /* MessageDetailVC.m in Sources */,
 				12481053204FCBB8006A22BE /* ELCOverlayImageView.m in Sources */,
 				1283A89C1FF4E954001FDBDE /* FourViewController.m in Sources */,
@@ -950,6 +988,7 @@
 				1283A8B61FF63685001FDBDE /* BGControl.m in Sources */,
 				1204201920075D9300D8E558 /* ManagementCell.m in Sources */,
 				1283A8B51FF63685001FDBDE /* ChineseString.m in Sources */,
+				127375742068E4DB002B26F6 /* iCloudManager.m in Sources */,
 				127ADF952006085E0081D102 /* TestScoresVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1114,6 +1153,7 @@
 			baseConfigurationReference = DE3313C1FDF668E892A87490 /* Pods-Teacher.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Teacher/Teacher.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8NWL5582K3;
@@ -1134,6 +1174,7 @@
 			baseConfigurationReference = 163AFE53D64022EBD3A4D537 /* Pods-Teacher.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Teacher/Teacher.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8NWL5582K3;

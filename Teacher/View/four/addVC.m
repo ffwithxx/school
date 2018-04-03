@@ -12,9 +12,17 @@
 #import "SZCalendarPicker.h"
 #import "ELCImagePickerHeader.h"
 #import "BGControl.h"
-
-@interface addVC ()<postStudentDelegate,UITextViewDelegate,postTypeDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,ELCImagePickerControllerDelegate>{
+#import "AFClient.h"
+#import "iCloudManager.h"
+@interface addVC ()<postStudentDelegate,UITextViewDelegate,postTypeDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,ELCImagePickerControllerDelegate,UIDocumentPickerDelegate, UIDocumentInteractionControllerDelegate>{
     NSMutableArray *_images;
+    NSString *studentIdStr;
+    NSString *teacherIdStr;
+    NSString *imgStr;
+    NSString *txtStr;
+    NSString *myTypeStr;
+    NSMutableArray *addImgArr;
+     NSMutableArray *addtxtArr;
 }
 
 @end
@@ -23,6 +31,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    addImgArr = [[NSMutableArray alloc] init];
+    addtxtArr = [[NSMutableArray alloc] init];
     _images = [NSMutableArray array];
     self.detailTextView.delegate = self;
     
@@ -73,17 +83,28 @@
     }else if (sender.tag == 302) {
         UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从相册选取", nil];
         [sheet showInView:self.view];
+    }else if (sender.tag == 303) {
+        [self presentDocumentPicker];
     }
     
 }
+
 - (IBAction)backClick:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)postStudent:(NSDictionary *)studentDict withclassId:(NSString *)classId {
     self.studentsFile.text = [studentDict valueForKey:@"sname"];
+    studentIdStr = classId;
 }
 - (void)postType:(NSString *)typeStr {
     self.typeFile.text = typeStr;
+    if ([typeStr isEqualToString:@"奖惩记录"]) {
+        myTypeStr = @"1";
+    }else if ([typeStr isEqualToString:@"在校表现"]) {
+        myTypeStr = @"0";
+    }else if ([typeStr isEqualToString:@"活动记录"]) {
+        myTypeStr = @"2";
+    }
 }
 - (void)textViewDidChange:(UITextView *)textView {
     if (!textView.text.length) {
@@ -285,7 +306,9 @@
         
     } success:^(id responseBody) {
         
-        if ([[responseBody valueForKey:@"status"] integerValue] == 0) {
+        if ([[responseBody valueForKey:@"code"] integerValue] == 0) {
+            [addImgArr addObject:[[responseBody valueForKey:@"data"]valueForKey:@"img"]];
+//            [addImgArr addObject:<#(nonnull id)#>]
            
 //            for (UIView *v in [self.bigScrollView subviews]) {
 //                [v removeFromSuperview];
@@ -295,7 +318,7 @@
         }else {
 //            NSString *str = [responseBody valueForKey:@"errors"][0];
             //           [_images removeObjectAtIndex:index];
-            [self Alert:str];
+           [self Alert:responseBody[@"msg"]];
             
         }
         [self dismiss];
@@ -310,6 +333,99 @@
 
 
 
+- (IBAction)addClick:(UIButton *)sender {
+    NSString *jsonString = [[NSUserDefaults standardUserDefaults]valueForKey:@"loginData"];
+    NSDictionary *userInfoDict = [[BGControl dictionaryWithJsonString:jsonString] valueForKey:@"userInfo"];
+    NSString *teacherId = [userInfoDict valueForKey:@"id"];
+    if ([BGControl isNULLOfString:studentIdStr]) {
+        [self Alert:@"请选择学生"];
+        return;
+    }else if ([BGControl isNULLOfString:self.titleTextFile.text]) {
+        [self Alert:@"请输入标题"];
+        return;
+    }else if ([BGControl isNULLOfString:self.detailTextView.text]) {
+        [self Alert:@"请输入内容"];
+        return;
+    }else if ([BGControl isNULLOfString:myTypeStr]) {
+        [self Alert:@"请选择类型"];
+        return;
+    }
+    NSDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:teacherId forKey:@"teacherId"];
+    [dict setValue:studentIdStr forKey:@"studentId"];
+    [dict setValue:self.detailTextView.text forKey:@"content"];
+    [dict setValue:self.titleTextFile.text forKey:@"title"];
+    [dict setValue:myTypeStr forKey:@"type"];
+    imgStr = [addImgArr componentsJoinedByString:@";"];
+    txtStr = [addtxtArr componentsJoinedByString:@";"];
+    if (![BGControl isNULLOfString:imgStr]) {
+        [dict setValue:imgStr forKey:@"img"];
+    }
+    if (![BGControl isNULLOfString:txtStr]) {
+        [dict setValue:txtStr forKey:@"txt"];
+    }
+   
+    
+    [self show];
+    [[AFClient shareInstance] createBackWithDict:dict progressBlock:^(NSProgress *progress) {
+        
+    } success:^(id responseBody) {
+        if ([[responseBody valueForKey:@"code"] integerValue] == 0) {
+            [self Alert:@"新建成功"];
+            
+        }else{
+            [self Alert:responseBody[@"msg"]];
+        }
+         [self dismiss];
+    } failure:^(NSError *error) {
+        [self dismiss];
+    }];
+}
+- (void)presentDocumentPicker {
+    NSArray *documentTypes = @[@"public.content", @"public.text", @"public.source-code ", @"public.image", @"public.audiovisual-content", @"com.adobe.pdf", @"com.apple.keynote.key", @"com.microsoft.word.doc", @"com.microsoft.excel.xls", @"com.microsoft.powerpoint.ppt"];
+    
+    UIDocumentPickerViewController *documentPickerViewController = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:documentTypes
+                                                                                                                          inMode:UIDocumentPickerModeOpen];
+    documentPickerViewController.delegate = self;
+    [self presentViewController:documentPickerViewController animated:YES completion:nil];
+}
+#pragma mark - UIDocumentPickerDelegate
+
+- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
+    
+    NSArray *array = [[url absoluteString] componentsSeparatedByString:@"/"];
+    NSString *fileName = [array lastObject];
+    fileName = [fileName stringByRemovingPercentEncoding];
+    
+    if ([iCloudManager iCloudEnable]) {
+        [iCloudManager downloadWithDocumentURL:url callBack:^(id obj) {
+            NSData *data = obj;
+            
+            //写入沙盒Documents
+            NSString *path = [NSHomeDirectory() stringByAppendingString:[NSString stringWithFormat:@"/Documents/%@",fileName]];
+            [self show];
+            [[AFClient shareInstance] postOneFileNameone:data withFileName:fileName progressBlock:^(NSProgress *progress) {
+                
+            } success:^(id responseBody) {
+                
+                if ([[responseBody valueForKey:@"code"] integerValue] == 0) {
+                    NSString *txt = [[responseBody valueForKey:@"data"] valueForKey:@"img"];
+                    NSString *txtName = [[responseBody valueForKey:@"data"] valueForKey:@"tname"];
+                    NSString *txtStr = [NSString stringWithFormat:@"%@%@%@",txt,@"◆",txtName];
+                    [addtxtArr addObject:txtStr];
+                }else {
+                  
+                    [self Alert:responseBody[@"msg"]];
+                    NSLog(@"%@",responseBody[@"msg"]);
+                }
+                [self dismiss];
+            } failure:^(NSError *error) {
+                [self Alert:@"上传附件失败"];
+                [self dismiss];
+            }];
+        }];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

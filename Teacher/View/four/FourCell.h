@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "feedBackModel.h"
 @protocol maxHeiDelegate <NSObject>
 
 @optional
@@ -20,6 +21,14 @@
 
 -(void)checkImg:(NSInteger)bthTag  withImgArr:(NSArray *)imgArr;
 @end
+
+@protocol downDelegate <NSObject>
+
+@optional
+
+-(void)downImg:(NSInteger)bthTag  withDownArr:(NSArray *)downArr;
+@end
+
 @interface FourCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *titleLab;
 @property (strong, nonatomic) IBOutlet UILabel *countLab;
@@ -30,7 +39,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *downTitleLab;
 @property (strong, nonatomic) IBOutlet UILabel *typeLab;
 @property (strong, nonatomic) IBOutlet UILabel *nameLab;
+@property (strong, nonatomic) IBOutlet UIView *fileView;
 @property(nonatomic,weak) id<maxHeiDelegate> delegate;
 @property(nonatomic,weak) id<checkDelegate> checkDelegate;
-- (void)showModelWithIndex:(NSInteger)index;
+@property(nonatomic,weak) id<downDelegate> downDelegate;
+
+- (void)showModelWithIndex:(NSInteger)index withModel:(feedBackModel *)model;
 @end

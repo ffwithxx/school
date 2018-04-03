@@ -7,6 +7,7 @@
 //
 
 #import "JJBaseController.h"
+#import "feedBackModel.h"
 
 @interface ManagementVC : JJBaseController
 @property (strong, nonatomic) IBOutlet UIView *topView;
@@ -18,6 +19,12 @@
 @property (strong, nonatomic) IBOutlet UIView *picView;
 @property (strong, nonatomic) IBOutlet UILabel *typeLab;
 @property (strong, nonatomic) IBOutlet UIView *naView;
-@property (strong, nonatomic) IBOutlet UITableView *bigTableView;
+@property (strong, nonatomic) IBOutlet UIView *fileView;
 
+@property (strong, nonatomic) IBOutlet UITableView *bigTableView;
+@property (strong, nonatomic)  feedBackModel *model;
+@property (strong, nonatomic) IBOutlet UIView *bottomView;
+@property (strong, nonatomic) IBOutlet UIView *tanView;
+@property (strong, nonatomic) IBOutlet UITextView *bigTextView;
+@property (strong, nonatomic) IBOutlet UIButton *sendBth;
 @end

@@ -83,8 +83,8 @@
         UIImageView *imageview = [[UIImageView alloc] init];
         NSString *picUrl = [[NSUserDefaults standardUserDefaults] valueForKey:@"fileCenterUrl"];
         
-//               [imageview sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@%@&%@%d",picUrl,@"FileCenter/StoreAttachment/ExportLarge",@"pict001=",[self.IMGArray[i] valueForKey:@"systemFileName"],@"imageSize=",1024]] placeholderImage:[UIImage imageNamed:@"icon_moren(1).png"]];
-        imageview.image = [UIImage imageNamed:self.IMGArray[i]];
+               [imageview sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.IMGArray[i]]] placeholderImage:[UIImage imageNamed:@"icon_moren(1).png"]];
+       
         [imageview setContentMode:UIViewContentModeScaleAspectFit];
         imageview.frame = CGRectMake(0, 0, kScreenSize.width, self.view.frame.size.height);
         imageview.userInteractionEnabled = YES;

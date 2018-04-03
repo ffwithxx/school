@@ -10,7 +10,7 @@
 #import "TeacherScheduleModel.h"
 @protocol siginDelegate <NSObject>
 @optional
-- (void)postStr:(NSString *)Str;
+- (void)postIdStr:(NSString *)Str withStime:(NSString *)stime;
 @end
 
 

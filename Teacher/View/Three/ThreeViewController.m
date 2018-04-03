@@ -64,6 +64,7 @@
         choice.delegate = self;
         choice.schoolYearId = [NSString stringWithFormat:@"%ld",(long)oneId];
         choice.projectId =  [NSString stringWithFormat:@"%ld",(long)fourId];
+        choice.schoolId =  [NSString stringWithFormat:@"%ld",(long)threeId];
         choice.gradeId =  [NSString stringWithFormat:@"%ld",(long)fiveId];
         choice.examTypeId =  [NSString stringWithFormat:@"%ld",(long)eightId];
         [self.navigationController pushViewController:choice animated:YES];
@@ -206,6 +207,12 @@
         noneId = idNum;
          }
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
